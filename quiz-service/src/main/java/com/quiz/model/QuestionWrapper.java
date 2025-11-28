@@ -1,7 +1,5 @@
 package com.quiz.model;
 
-
-
 import lombok.Data;
 
 @Data

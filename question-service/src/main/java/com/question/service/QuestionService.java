@@ -46,6 +46,9 @@ public class QuestionService {
 
     public ResponseEntity<List<Integer>> getQuestionsForQuiz(String categoryName, Integer numQuestions) {
         List<Integer> questions = questionDao.findRandomQuestionsByCategory(categoryName, numQuestions);
+        if (questions.size() > numQuestions) {
+			questions = questions.subList(0, numQuestions);
+		}
         return new ResponseEntity<>(questions, HttpStatus.OK);
     }
 
